@@ -10,7 +10,7 @@ class record(models.Model):
 class patient(models.Model): 
     id = models.CharField(primary_key=True, max_length=50)
     nom = models.CharField(max_length=50)
-    prnom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50)
     date_naissance = models.DateField()
     sexe = models.CharField(max_length=1)
     information = models.TextField()
@@ -61,7 +61,7 @@ class Vaccination (models.Model):
 class Medecin(models.Model):
     id = models.CharField(primary_key = True , max_length=50)
     nom = models.CharField(max_length=30)
-    prnom = models.CharField(max_length=30)
+    prenom = models.CharField(max_length=30)
     specilite= models.CharField(max_length= 30)
     #ajouter les reference vers les deferente service 
 
