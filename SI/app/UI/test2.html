@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <nav>
         <img src="logo.png" alt="logo">
         <h2>HOSPITAL</h2>
@@ -17,21 +18,33 @@
             <a href="">Contact</a>
         </div>
     </nav>
-    <div class="container">
-            <button type="button" class="new">new Patient</button>
-            <button type="button" class="new">new Medecin</button>
-            <div class="rendezvous">
-                <button type="button" class="new">Hopitaisation</button> 
-                <button type="button" class="new">Visite</button> 
-                <button type="button" class="new">Control</button> 
-                <button type="button" class="new">Analyse</button> 
-                <button type="button" class="new">Chirugie</button> 
-                <button type="button" class="new">Vaccination</button> 
+    <div class="main">
+        <div class="side_bar">
+            <div> <button type="button" class="new">new Patient</button></div>
+            <div> <button type="button" class="new">new Medecin</button></div>
+                
+            <div> <button type="button" class="new">Hopitaisation</button></div>
+            <div> <button type="button" class="new">Visite</button> </div>
+            <div> <button type="button" class="new">Control</button> </div>
+            <div> <button type="button" class="new">Analyse</button> </div>
+            <div> <button type="button" class="new">Chirugie</button> </div>
+            <div> <button type="button" class="new">Vaccination</button> </div>
+        </div>
+        <div class="button_and_show_sec" id="button_and_show_sec">
+
+            <div class="button_sec" id="button_sec">
+
             </div>
-             
+            <div class="show_sec" id="show_sec"></div>
+
+        </div>
     </div>
+
+
+
+
     <!-- Patient -->
-    <form method="post" class='hidden'>
+    <form id="add_patient_form" class="hidden add_form" >
         <p>Patient</p>
         <label htmlFor="nom">Nom:</label>
         <input type="text" name="nom" required/>
@@ -41,20 +54,20 @@
         <input type="date" id="date_naissance" name="date_naissance" required/>
         <label htmlFor="sexe">Sexe:</label>
         <input type="text" id="sexe" name="sexe" required/>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
         <label htmlFor="information">Information:</label>
         <textarea id="information" name="information" required></textarea>
         <div class="buttons">
-          <button type="submit">Add Patient</button>
+          <button id="add_patient_button" class="add">Add Patient</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
     <!-- Medecin -->
-    <form method="post" class='hidden'>
+    <form class='hidden add_form' id="add_medecin_form">
         <p>Medecin</p>
-        <label htmlFor="id">ID:</label>
-        <input type="text" id="id" name="id" required/>
+        <!-- <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/> -->
         <label htmlFor="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required/>
         <label htmlFor="prenom">Prénom:</label>
@@ -62,101 +75,433 @@
         <label htmlFor="specialite">specialite:</label>
         <input type="text" id="specialite" name="specialite" required/>
         <div class="buttons">
-          <button type="submit">Add medecin</button>
+          <button id="add_medecin_button" class="add">Add medecin</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
 <!-- Hosipitalisation -->
-    <form method="post" class='hidden'>
+    <form id="add_hospitalisation_form" class='hidden add_form'>
         <p>Hospitalisation</p>
         <label htmlFor="duree">Durée:</label>
-        <input type="text" id="duree" name="duree" required/>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record"  required/>
+        <input type="text" id="duree" name="jour" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record"  required/> -->
         <label htmlFor="medecin">Médecin ID:</label>
         <input type="text" id="medecin" name="medecin"  required/>
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+
         <label htmlFor="result">Résultat:</label>
-        <textarea id="result" name="result" required></textarea>
+        <textarea id="result" name="resultat" required></textarea>
         <div class="buttons">
-          <button type="submit">Add Hopitalisation</button>
+          <button type="submit" class="add">Add Hopitalisation</button>
           <button type='button' class='Exit'>Exit</button>
         </div>
     </form>
 <!-- Visite -->
-    <form method="post" class='hidden'>
+    <form id="add_visite_form" class='hidden add_form'>
         <p>Visite</p>
-        <label htmlFor="id">ID:</label>
-        <input type="text" id="id" name="id"  required/>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record"  required/>
+        <!-- <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id"  required/> -->
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record"  required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
         <label htmlFor="medecin">Médecin ID:</label>
         <input type="text" id="medecin" name="medecin"  required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
         <label htmlFor="result">Résultat:</label>
-        <textarea id="result" name="result" required></textarea> 
+        <textarea id="result" name="resultat" required></textarea> 
         <div class='buttons'>    
-          <button type="submit">Add Visite</button>
+          <button type="submit" class="add">Add Visite</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
 <!-- Control -->
-    <form method="post" class='hidden'>
+    <form id="add_control_form" class='hidden add_form'>
         <p>Control</p>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record"  required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record"  required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
         <label htmlFor="medecin">Médecin ID:</label>
         <input type="text" id="medecin" name="medecin"  required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
         <label htmlFor="result">Résultat:</label>
-        <textarea id="result" name="result" required></textarea>
+        <textarea id="result" name="resultat" required></textarea>
         <div class="buttons">
-          <button type="submit">Add Control</button>
+          <button type="submit" class="add">Add Control</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
 <!-- Analyse -->
-    <form method="post" class='hidden'>
+    <form id="add_analyse_form" class='hidden add_form'>
         <p>Analyse</p>
         <label htmlFor="type">Type:</label>
         <input type="text" id="type" name="type" required/>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
         <label htmlFor="medecin">Médecin ID:</label>
         <input type="text" id="medecin" name="medecin" required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
         <label htmlFor="result">Résultat:</label>
-        <textarea id="result" name="result" required></textarea>
+        <textarea id="result" name="resultat" required></textarea>
         <div class="buttons">
-          <button type="submit">Add Analyse</button>
+          <button type="submit" class="add">Add Analyse</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
 <!-- Chirugie -->
-    <form method="post" class='hidden'>
+    <form id="add_chirurgie_form" class='hidden add_form'>
         <p>Chirugie</p>
-        <label htmlFor="duree">Durée:</label>
-        <input type="text" id="duree" name="duree" required/>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record" required/>
+        <label htmlFor="heure">Heure:</label>
+        <input type="text" id="heure" name="heure" required/>
+        <label htmlFor="minute">Minute:</label>
+        <input type="text" id="minute" name="minute" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
         <label htmlFor="medecin">Médecin ID:</label>
         <input type="text" id="medecin" name="medecin" required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
         <label htmlFor="detail">Détail:</label>
         <textarea id="detail" name="detail" required></textarea>
         <div class='buttons'>
-          <button type="submit">Add Chirugie</button>
+          <button type="submit" class="add">Add Chirugie</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
 <!-- Vaccination -->
-    <form method="post" class='hidden'>
+    <form id="add_vaccination_form" class='hidden add_form'>
         <p>Vaccination</p>
         <label htmlFor="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required/>
         <label htmlFor="type">Type:</label>
         <input type="text" id="type" name="type" required/>
-        <label htmlFor="record">Record ID:</label>
-        <input type="text" id="record" name="record" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
         <label htmlFor="medecin">Médecin ID:</label>
         <input type="text" id="medecin" name="medecin" required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+        <div class='buttons' >
+          <button type="submit" class="add">Add Vaccination</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+
+
+
+    <!-- del forms -->
+    <!-- Patient -->
+    <form class="del_form hidden" id="del_patient_form">
+        <p>Patient</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- medecin -->
+    <form class="del_form hidden" id="del_medecin_form">
+        <p>medecin</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- hospitalisation -->
+    <form class="del_form hidden" id="del_hospitalisation_form">
+        <p>hospitalisation</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- medecin -->
+    <form class="del_form hidden" id="del_visite_form">
+        <p>visite</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- control -->
+    <form class="del_form hidden" id="del_control_form">
+        <p>control</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- analyse -->
+    <form class="del_form hidden" id="del_analyse_form">
+        <p>analyse</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- chirurgie -->
+    <form class="del_form hidden" id="del_chirurgie_form">
+        <p>chirurgie</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- vaccination -->
+    <form class="del_form hidden" id="del_vaccination_form">
+        <p>vaccination</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/>
+        <div class='buttons' >
+            <button class="add">Add Vaccination</button>
+            <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+
+
+    <!-- modify forms -->
+    <!-- Patient -->
+    <form id="mod_patient_form" class="hidden mod_form" >
+        <p>Patient</p>
+        
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <label htmlFor="nom">Nom:</label>
+        <input type="text" name="nom" required/>
+        <label htmlFor="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required />
+        <label htmlFor="date_naissance">Date de Naissance:</label>
+        <input type="date" id="date_naissance" name="date_naissance" required/>
+        <label htmlFor="sexe">Sexe:</label>
+        <input type="text" id="sexe" name="sexe" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="information">Information:</label>
+        <textarea id="information" name="information" required></textarea>
+        <div class="buttons">
+          <button id="mod_patient_button" class="add">mod Patient</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+    <!-- Medecin -->
+    <form class='hidden mod_form' id="mod_medecin_form">
+        <p>Medecin</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <!-- <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id" required/> -->
+        <label htmlFor="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required/>
+        <label htmlFor="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required/>
+        <label htmlFor="specialite">specialite:</label>
+        <input type="text" id="specialite" name="specialite" required/>
+        <div class="buttons">
+          <button id="mod_medecin_button" class="add">mod medecin</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+<!-- Hosipitalisation -->
+    <form id="mod_hospitalisation_form" class='hidden mod_form'>
+        <p>Hospitalisation</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <label htmlFor="duree">Durée:</label>
+        <input type="text" id="duree" name="jour" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record"  required/> -->
+        <label htmlFor="medecin">Médecin ID:</label>
+        <input type="text" id="medecin" name="medecin"  required/>
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+
+        <label htmlFor="result">Résultat:</label>
+        <textarea id="result" name="resultat" required></textarea>
+        <div class="buttons">
+          <button type="submit" class="add">mod Hopitalisation</button>
+          <button type='button' class='Exit'>Exit</button>
+        </div>
+    </form>
+<!-- Visite -->
+    <form id="mod_visite_form" class='hidden mod_form'>
+        <p>Visite</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <!-- <label htmlFor="id">ID:</label>
+        <input type="text" id="id" name="id"  required/> -->
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record"  required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="medecin">Médecin ID:</label>
+        <input type="text" id="medecin" name="medecin"  required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+        <label htmlFor="result">Résultat:</label>
+        <textarea id="result" name="resultat" required></textarea> 
+        <div class='buttons'>    
+          <button type="submit" class="add">mod Visite</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+<!-- Control -->
+    <form id="mod_control_form" class='hidden mod_form'>
+        <p>Control</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record"  required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="medecin">Médecin ID:</label>
+        <input type="text" id="medecin" name="medecin"  required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+        <label htmlFor="result">Résultat:</label>
+        <textarea id="result" name="resultat" required></textarea>
+        <div class="buttons">
+          <button type="submit" class="add">mod Control</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+<!-- Analyse -->
+    <form id="mod_analyse_form" class='hidden mod_form'>
+        <p>Analyse</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <label htmlFor="type">Type:</label>
+        <input type="text" id="type" name="type" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="medecin">Médecin ID:</label>
+        <input type="text" id="medecin" name="medecin" required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+        <label htmlFor="result">Résultat:</label>
+        <textarea id="result" name="resultat" required></textarea>
+        <div class="buttons">
+          <button type="submit" class="add">mod Analyse</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+<!-- Chirugie -->
+    <form id="mod_chirurgie_form" class='hidden mod_form'>
+        <p>Chirugie</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <label htmlFor="heure">Heure:</label>
+        <input type="text" id="heure" name="heure" required/>
+        <label htmlFor="minute">Minute:</label>
+        <input type="text" id="minute" name="minute" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="medecin">Médecin ID:</label>
+        <input type="text" id="medecin" name="medecin" required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+        <label htmlFor="detail">Détail:</label>
+        <textarea id="detail" name="detail" required></textarea>
         <div class='buttons'>
-          <button type="submit">Add Vaccination</button>
+          <button type="submit" class="add">mod Chirugie</button>
+          <button type='button' class='Exit' >Exit</button>
+        </div>
+    </form>
+<!-- Vaccination -->
+    <form id="mod_vaccination_form" class='hidden mod_form'>
+        <p>Vaccination</p>
+        <label htmlFor="id">ID:</label>
+        <input type="text" name="id" required/>
+        
+        <label htmlFor="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required/>
+        <label htmlFor="type">Type:</label>
+        <input type="text" id="type" name="type" required/>
+        <!-- <label htmlFor="record">Record ID:</label>
+        <input type="text" id="record" name="record" required/> -->
+        <label htmlFor="patient">Patient ID:</label>
+        <input type="text" id="patient" name="patient"  required/>
+        <label htmlFor="medecin">Médecin ID:</label>
+        <input type="text" id="medecin" name="medecin" required/>
+        <label htmlFor="date">Date:</label>
+        <input type="date" id="date" name="date" required/>
+
+        <label htmlFor="fait">Fait:</label>
+        <input type="checkbox" id="fait" name="fait"  required/>
+        <div class='buttons' >
+          <button type="submit" class="add">mod Vaccination</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>

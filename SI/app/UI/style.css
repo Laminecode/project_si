@@ -8,6 +8,21 @@
     --color: linear-gradient(90deg, rgba(12,79,156,0.8743872549019608) 30%, rgba(237,13,13,0.7287289915966386) 70%);
   }
   
+  .side_bar {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+  .side_bar div {
+      width: fit-content;
+      height: fit-content;
+      padding-top: -7px;
+      border: solid 12px red;
+      background-color: aliceblue;
+      border: solid 12px green;
+  }
+
+
   body{
     display: flex;
     flex-direction: column;
@@ -58,6 +73,10 @@
     /* overflow-y:scroll; */
   }
   
+  .test{
+    display: block;
+  }
+
   input{
     width: 340px;
     height: 30px;
@@ -107,6 +126,7 @@
   }
   
   .new{
+
     height: 60px;
     width: 200px;
     border: 1px solid black;
@@ -165,4 +185,53 @@ nav > div > a:hover {
     flex-wrap: wrap;
     width: 80%;
     column-gap: 60px;
+}
+
+.button_and_show_sec {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  width: 100%;
+  height: 100%;
+}
+
+.button_sec {
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+  height: 10%;
+}
+
+.show_sec {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  border: solid 4px green;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+}
+  /* tables */
+.table_line {
+  background-color: aqua;
+  border: solid 4px salmon;
+  display: flex;
+  flex-direction: row;
+}
+.table_entry {
+  text-align: center;
+  background-color: red;
+  border: solid 4px green;
+}
+
+.sec_button_name {
+  display: flex;
+  font-size: larger;
+  text-align: center;
+  height: 100%;
+  border: solid 5px red;
+  align-items: center;
 }
