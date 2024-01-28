@@ -1,7 +1,10 @@
+
+// helper method to get elements from the dom 
 function _get_elements(_class)
 {
 	return document.querySelectorAll(_class);
 }
+// helper method to get elements from inside other specific elements
 function _get_elements_from_elements(elements, _class)
 {
 	let list = [];
@@ -10,7 +13,7 @@ function _get_elements_from_elements(elements, _class)
 }
 
 
-
+// getting all the forms and buttons to give them event listeners
 let menu_buttons = _get_elements(".new");
 let add_forms = _get_elements(".add_form");
 let del_forms = _get_elements(".del_form");
@@ -24,13 +27,12 @@ let add_del_form_buttons = _get_elements_from_elements(del_forms, ".add");
 
 let exit_mod_form_buttons = _get_elements_from_elements(mod_forms, ".Exit");
 let add_mod_form_buttons = _get_elements_from_elements(mod_forms, ".add");
-console.log(mod_forms);
-console.log(add_mod_form_buttons);
-
 
 let table = document.getElementById("show_sec");
 let button_sec = document.getElementById("button_sec");
 
+
+// list of tiltes for the add del modify buttons section 
 let section_names = [
 	"Patient", "Medecin",
 	"Hospitalisation",
@@ -41,6 +43,7 @@ let section_names = [
 	"Vaccination",
 ]
 
+// list of form names with the corresponding view url in backend for adding new objects
 let form_names_urls = [
 	"add_patient/", "add_patient_form",
 	"add_medecin/", "add_medecin_form", 
@@ -52,6 +55,7 @@ let form_names_urls = [
 	"add_vaccination/", "add_vaccination_form",
 ]
 
+// list of form names with the corresponding view url in backend for deleting existing objects
 let del_form_names_urls = [
 	"del_patient/", "del_patient_form",
 	"del_medecin/", "del_medecin_form", 
@@ -63,6 +67,7 @@ let del_form_names_urls = [
 	"del_vaccination/", "del_vaccination_form",
 ]
 
+// list of form names with the corresponding view url in backend for modifying existing objects
 let mod_form_names_urls = [
 	"mod_patient/", "mod_patient_form",
 	"mod_medecin/", "mod_medecin_form", 
@@ -74,6 +79,7 @@ let mod_form_names_urls = [
 	"mod_vaccination/", "mod_vaccination_form",
 ]
 
+// list of form view urls in backend for getting all the objects of a model
 let get_all_urls = [
 	"get_all_patient/", 
 	"get_all_medecin/", 
@@ -85,6 +91,7 @@ let get_all_urls = [
 	"get_all_vaccination/",
 ]
 
+// list of header names for the table whan showing the data of each model
 let headers = [
 	["id", "nom", "prenom", "date_naissance", "sexe", "information"],
 	["id", "nom", "prenom", "specialite"],
@@ -96,6 +103,11 @@ let headers = [
 	["id", "nom", "type", "medecin", "patient", "date", "fait"],
 ];
 
+// helper funcion to send a request to a given url, send data in the body of the request ...
+// ... and retrun the data returned in the body of the response
+
+// this function sends the url to the backend using Port 8000 !!!
+// so make sure the server in launched in that port
 async function request(url, data)
 {
 	res = await fetch("http://localhost:8000/app/"+url,
@@ -111,6 +123,7 @@ async function request(url, data)
 
 }
 
+// helper function that takes a form name, and collects and returns all the input data in the form
 function collect_form_data(form_name)
 {
 	input_values = {};
@@ -148,29 +161,20 @@ function collect_form_data(form_name)
 	return input_values;
 }
 
-function show_list(list)
-{
-	// loop through every element in list
-	//	a = call the appropriate function to create the div from the data of this element
-	// 	add a to the show div 
-	
-}
 
-
-
-
-// console.log(add_forms)
-// console.log(menu_buttons)
+// event handler for add buttons to show the form
 function handleClick(form){
     form.classList.add("form")
     form.classList.remove('hidden')
 }
 
+// event handler for exit buttons to hide the form
 function handleClick2(form){
     form.classList.add("hidden")
     form.classList.remove('form')
 }
 
+// event handler that shows the main section (data table and manegment buttons : add, del...) of a given model
 function toggle_show_and_button_sec(i)
 {
 	empty_button_sec();
@@ -180,7 +184,7 @@ function toggle_show_and_button_sec(i)
 	// console.log(headers[i]);
 }
 
-
+// event handler for creaeting new object for a model
 function submit_add(url, form_name)
 {
 	// console.log("test 123");
@@ -189,6 +193,7 @@ function submit_add(url, form_name)
 	request(url, data);
 }
 
+// event handler for getting all object of a model
 function get_all(url)
 {
 	data = request(url, {});
@@ -196,11 +201,7 @@ function get_all(url)
 	return data;
 }
 
-
-// they all take a list of buttons
-// they take an envent
-// they all take one parameter (for now) which is : i
-
+// helper function to add event handler to all elements in list
 function _add_event_to_buttons(list, event, callback)
 {
 	for (let i = 0; i < list.length; i++)
@@ -209,6 +210,8 @@ function _add_event_to_buttons(list, event, callback)
 	}
 }
 
+
+// adding event handlers to buttons
 
 // for (let i = 0 ;i<menu_buttons.length;i++){
 //     menu_buttons[i].addEventListener('click',function(){toggle_show_and_button_sec(i)});
@@ -247,6 +250,8 @@ _add_event_to_buttons(exit_mod_form_buttons, "click", function(i){handleClick2(m
 _add_event_to_buttons(add_mod_form_buttons, "click", function(i){submit_add(mod_form_names_urls[i*2], mod_form_names_urls[i*2 + 1])})
 
 
+
+// method to create the header of the table for showing the data
 function create_header_list(headers)
 {
 	header_entry_width = (100 / headers.length).toString() + "%";
@@ -265,6 +270,7 @@ function create_header_list(headers)
 	document.getElementById("show_sec").appendChild(header);
 }
 
+// method to create the cell of the table 
 function create_data_entry(value, width)
 {
 	let entry = document.createElement("div");
@@ -284,6 +290,7 @@ function create_data_entry(value, width)
 	return entry;
 }
 
+// method to delete all previous data in talbe
 function empty_table()
 {
 	while (table.firstChild)
@@ -292,6 +299,7 @@ function empty_table()
 	}
 }
 
+// method to create a single line in the table
 function create_data_list(data, header)
 {
 
@@ -314,6 +322,8 @@ function create_data_list(data, header)
 	});
 }
 
+
+// handler to get the data and show it the table when the menu buttons are pressed
 function show_data(data, header)
 {
 	empty_table();

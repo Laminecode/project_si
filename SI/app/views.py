@@ -42,22 +42,19 @@ def creer_record(type, data):
 	record = models.Record(type=type, fait=data["fait"], date=data["date"], patient=models.Patient.objects.get(pk=data["patient"]))
 	record.save()
 	return record
-	# record.patient.set(patient)
 
 def get_medecin_from_ids(list_of_ids: str):
 	ids = list_of_ids.split(",")
 	res = []
 	for _id in ids:
 		res.append(models.Medecin.objects.get(pk=int(_id)))
-	# print(res)
 	return res
-#  to do : fix the medecin getting for the rest of the services
+
 @csrf_exempt
 def add_visite(request):
 	data = json.loads(request.body)
 	record = creer_record(TYPE_VISITE, data)
 	medecin = get_medecin_from_ids(data["medecin"])
-	# medecin = models.Medecin.objects.get(pk=data["medecin"])
 	visite = models.Visite(resultat=data["resultat"], record=record)
 	visite.save()
 	visite.medecin.add(*medecin)
@@ -173,11 +170,11 @@ def get_all_analyse(request):
     return get_all(models.Analyse)
 
 
+# delete views
 
 def delete(Class, req_data):
 	data = json.loads(req_data.body)
 	obj = Class.objects.get(pk=data["id"])
-	print(obj)
 	obj.delete()
 
 
@@ -223,6 +220,8 @@ def del_vaccination(data):
 
 
 
+# modify views
+
 def get_obj(Class, data):
 	return Class.objects.get(pk=int(data["id"]))
 
@@ -267,10 +266,8 @@ def mod_medecin(request):
 		medecin.specialite = specialite
 
 	medecin.save()
-	print(data)
 	return JsonResponse({})
 
-#  to do : fix the medecin getting for the rest of the services
 
 def mod_and_save_commun_srevice_attr(service, data):
 	patient = data["patient"]
@@ -373,7 +370,7 @@ def mod_vaccination(request):
 	vaccination = get_obj(models.Vaccination, data)
 	nom = data["nom"]
 	_type = data["type"]
-	
+
 	if nom:
 		vaccination.nom = nom
 	if _type:

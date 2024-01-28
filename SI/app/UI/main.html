@@ -20,15 +20,15 @@
     </nav>
     <div class="main">
         <div class="side_bar">
-            <div> <button type="button" class="new">new Patient</button></div>
-            <div> <button type="button" class="new">new Medecin</button></div>
+             <button type="button" class="new">Patient</button>
+             <button type="button" class="new">Medecin</button>
                 
-            <div> <button type="button" class="new">Hopitaisation</button></div>
-            <div> <button type="button" class="new">Visite</button> </div>
-            <div> <button type="button" class="new">Control</button> </div>
-            <div> <button type="button" class="new">Analyse</button> </div>
-            <div> <button type="button" class="new">Chirugie</button> </div>
-            <div> <button type="button" class="new">Vaccination</button> </div>
+             <button type="button" class="new">Hopitaisation</button>
+             <button type="button" class="new">Visite</button> 
+             <button type="button" class="new">Control</button> 
+             <button type="button" class="new">Analyse</button> 
+             <button type="button" class="new">Chirugie</button> 
+             <button type="button" class="new">Vaccination</button> 
         </div>
         <div class="button_and_show_sec" id="button_and_show_sec">
 
@@ -228,7 +228,7 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Patient</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -238,7 +238,7 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Medecin</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -248,17 +248,17 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Hosipitalisation</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
-    <!-- medecin -->
+    <!-- visite -->
     <form class="del_form hidden" id="del_visite_form">
         <p>visite</p>
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Visite</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -268,7 +268,7 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Control</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -278,7 +278,7 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Analyse</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -288,7 +288,7 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Chirurgie</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -298,7 +298,7 @@
         <label htmlFor="id">ID:</label>
         <input type="text" id="id" name="id" required/>
         <div class='buttons' >
-            <button class="add">Add Vaccination</button>
+            <button class="add">Delete Vaccination</button>
             <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -325,7 +325,7 @@
         <label htmlFor="information">Information:</label>
         <textarea id="information" name="information" required></textarea>
         <div class="buttons">
-          <button id="mod_patient_button" class="add">mod Patient</button>
+          <button id="mod_patient_button" class="add">Modify Patient</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -344,7 +344,7 @@
         <label htmlFor="specialite">specialite:</label>
         <input type="text" id="specialite" name="specialite" required/>
         <div class="buttons">
-          <button id="mod_medecin_button" class="add">mod medecin</button>
+          <button id="mod_medecin_button" class="add">Modify medecin</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -371,7 +371,7 @@
         <label htmlFor="result">Résultat:</label>
         <textarea id="result" name="resultat" required></textarea>
         <div class="buttons">
-          <button type="submit" class="add">mod Hopitalisation</button>
+          <button type="submit" class="add">Modify Hopitalisation</button>
           <button type='button' class='Exit'>Exit</button>
         </div>
     </form>
@@ -397,7 +397,7 @@
         <label htmlFor="result">Résultat:</label>
         <textarea id="result" name="resultat" required></textarea> 
         <div class='buttons'>    
-          <button type="submit" class="add">mod Visite</button>
+          <button type="submit" class="add">Modify Visite</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -421,7 +421,7 @@
         <label htmlFor="result">Résultat:</label>
         <textarea id="result" name="resultat" required></textarea>
         <div class="buttons">
-          <button type="submit" class="add">mod Control</button>
+          <button type="submit" class="add">Modify Control</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -447,7 +447,7 @@
         <label htmlFor="result">Résultat:</label>
         <textarea id="result" name="resultat" required></textarea>
         <div class="buttons">
-          <button type="submit" class="add">mod Analyse</button>
+          <button type="submit" class="add">Modify Analyse</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -475,7 +475,7 @@
         <label htmlFor="detail">Détail:</label>
         <textarea id="detail" name="detail" required></textarea>
         <div class='buttons'>
-          <button type="submit" class="add">mod Chirugie</button>
+          <button type="submit" class="add">Modify Chirugie</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
@@ -501,7 +501,7 @@
         <label htmlFor="fait">Fait:</label>
         <input type="checkbox" id="fait" name="fait"  required/>
         <div class='buttons' >
-          <button type="submit" class="add">mod Vaccination</button>
+          <button type="submit" class="add">Modify Vaccination</button>
           <button type='button' class='Exit' >Exit</button>
         </div>
     </form>
